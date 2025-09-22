@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>decryption</title>
+</head>
+<body>
+       {% include 'navigation.html' %}
+<div class="container" mt=5>
+<h2 class="text-center">Decrypt  Text from Image</h2>
+<form method="POST" action="{% url 'decryption' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>Encrypted an Image</label>
+        <input type="file" name="image"class="form-control-file" required >
+        <br>
+    <button type="submit" class="btn btn-primary">Decrypt</button>
+</form>
+ {% if message %}
+</div>
+<div class="alert alert-success mt-3">
+    <h4>Decrypted Text</h4>
+    <p align="center">{{ text }}</p>
+</div>
+{% endif %}
+</body>
+</html>

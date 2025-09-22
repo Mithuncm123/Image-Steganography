@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>encryption</title>
+</head>
+<body >
+        {% include 'navigation.html' %}
+<div class="container" mt=5>
+<h2 class="text-center">Encrypt your Image</h2>
+<form method="POST" class="mt-5" action="{% url 'encryption' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>Select an Image</label>
+        <input type="file" name="image" class="form-control-file" required >
+    </div>
+        <div class="form-group">
+        <label>Enter the Text:</label>
+        <textarea type="text" name="text"class="form-control" required rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+{% if message %}
+<p class="text-center">{{message}}</p>
+{% endif %}
+</body>
+</html>

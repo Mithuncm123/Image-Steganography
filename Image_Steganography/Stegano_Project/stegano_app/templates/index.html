@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Steganograpy</title>
+    <style>
+      .footer {
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+      .image-container {
+        position: relative;
+        width: 50%;
+        float: left;
+        text-align: center;
+        margin-top: 5%;
+        
+      }
+      .button-link{
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navigation.html' %}
+    <div class="image-container" mt-5>
+      <img
+        src="{% static 'images/encryptionjpeg.jpeg' %}"
+        height="300"
+        width="300"
+      />
+      <a href="encryption/" class="btn btn-danger button-link">Encrpt Now</a>
+    </div>
+       <div class="image-container" mt-5>
+      <img
+        src="{% static 'images/decryption.jpeg' %}"
+        height="300"
+        width="300"
+      />
+      <a href="decryption/" class="btn btn-danger button-link">Decrpt Now</a>
+    </div>
+    <footer class="footer">
+      <p>&copy;Encryption and Decryption website</p>
+    </footer>
+  </body>
+</html>
